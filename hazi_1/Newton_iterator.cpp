@@ -16,13 +16,13 @@ T deriv(F f, int n, T x0, T x1)
 
 template<typename F, typename T>
 
-double Newton(F f, T deriv, double x0, double e);
-    {
+double Newton(F f, T deriv, double x0, double e)
+{
     double x1{};
 
     while(true) 
     {
-        x1 = x0 - f(x0) / df(x0);
+        x1 = x0 - f(x0) / deriv(f, x0, )
 
         if(abs( x1 - x0 ) <= e ) break;
 
@@ -30,10 +30,14 @@ double Newton(F f, T deriv, double x0, double e);
     }
 
     return x1;
-    }
-
+}
+/*
+Newton [](double x){ return x*x-612.0; }
+       [](double x){ return 2.0*x; }, 10.0);
+*/
 int main()
 {
-    Newton([](double x){ return x*x-612.0; },
-           [](double x){ return 2.0*x; }, 10.0);
+    double Newton = [](double x){ return x*x-612.0; }
+
+    return Newton(x);
 }
