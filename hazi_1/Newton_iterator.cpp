@@ -12,7 +12,7 @@ T deriv(F f, int n, T x0, T x1)
 {
    return (f*(x1-x0))/ n;
 }
-*/
+
 template<typename T>
 
 T function(T x) //a közelíteni kívánt függvény
@@ -26,12 +26,12 @@ D dx(D x) //...és az annak deriváltjával visszatérő függvény
 {
     return 3*x*x - 2*x;
 }
-
+*/
 template<typename F, typename T>
 
-double Newton(F function, T df, double x0, double e)
+double Newton(F f, T df, T x0, T x1, T e)
 {
-    double x1{};
+    //double x1{};
 
     while(true) 
     {
@@ -50,7 +50,12 @@ Newton [](double x){ return x*x-612.0; }
 */
 int main()
 {
-    double Newton = [](double x){ return x*x-612.0; }
+    auto f = [](double x){ return x*x-612.0; };
+    auto df = [](double x){ return 2.0*x; };
+    double x0 = 10.0;
+    
+    double output = Newton(f, df, x0)
+    cout<< "The solution:" <<output<<endl;
 
-    return Newton(x);
+    return 0;
 }
