@@ -27,15 +27,16 @@ D dx(D x) //...és az annak deriváltjával visszatérő függvény
     return 3*x*x - 2*x;
 }
 */
-template<typename F, typename T>
+template<typename F, typename T, typename G>
 
-double Newton(F f, T df, T x0, T x1, T e)
+double Newton(F f, G df, T x0)
 {
-    //double x1{};
+    double x1{};
+    double e = 1e-3;
 
     while(true) 
     {
-        x1 = x0 - function(x0) / df(x0);
+        x1 = x0 - f(x0) / df(x0);
 
         if(abs( x1 - x0 ) <= e ) break;
 
@@ -54,8 +55,8 @@ int main()
     auto df = [](double x){ return 2.0*x; };
     double x0 = 10.0;
     
-    double output = Newton(f, df, x0)
-    cout<< "The solution:" <<output<<endl;
+    double output = Newton(f, df, x0);
+    cout<< "The solution is:" <<output<<endl;
 
     return 0;
 }
