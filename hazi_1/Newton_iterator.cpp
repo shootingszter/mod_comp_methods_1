@@ -5,50 +5,29 @@
 
 using namespace std; //hogy ne kelljen minden alkalommal kiírni, hogy std ::
  
-/*
-deriváló rutin, amiről kiderült, hogy haszontalan
 
-T deriv(F f, int n, T x0, T x1)
-{
-   return (f*(x1-x0))/ n;
-}
-
-template<typename T>
-
-T function(T x) //a közelíteni kívánt függvény
-{
-    return x*x*x - x*x + 2;
-}
-
-template<typename D>
-
-D dx(D x) //...és az annak deriváltjával visszatérő függvény
-{
-    return 3*x*x - 2*x;
-}
-*/
 template<typename F, typename T, typename G>
+
+//f- the function
+//df- derivative of the function
+//x0- initial guess
 
 double Newton(F f, G df, T x0)
 {
-    double x1{};
-    double e = 1e-3;
+    double x1{}; //initializing 
+    double e = 1e-3; //epsilon
 
     while(true) 
     {
         x1 = x0 - f(x0) / df(x0);
 
         if(abs( x1 - x0 ) <= e ) break;
-
         x0 = x1;
     }
 
     return x1;
 }
-/*
-Newton [](double x){ return x*x-612.0; }
-       [](double x){ return 2.0*x; }, 10.0);
-*/
+
 int main()
 {
     auto f = [](double x){ return x*x-612.0; };
@@ -56,7 +35,7 @@ int main()
     double x0 = 10.0;
     
     double output = Newton(f, df, x0);
-    cout<< "The solution is:" <<output<<endl;
+    cout<< "The root is:" <<output<<endl;
 
     return 0;
 }
