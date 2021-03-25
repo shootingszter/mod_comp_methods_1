@@ -1,8 +1,9 @@
 #include <iostream>
 #include <ostream>
+//általam csinált header "" közt
 #include "vector2.h"
 
-//template<typename T>
+//meghívom a headerben definiált műveleteket
 
 int main()
 {
