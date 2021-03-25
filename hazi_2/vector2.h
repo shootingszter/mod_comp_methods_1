@@ -23,3 +23,10 @@ Vector2<T> operator+( Vector2<T> const& a, Vector2<T> const& b )
 {
     return Vector2<T>{a.x + b.x, a.y + b.y};
 }
+
+template<typename T>
+
+Vector2<T> operator-( Vector2<T> const& a, Vector2<T> const& b)
+{
+    return Vector2<T>{ a.x - b.x, a.y - b.y};
+}
