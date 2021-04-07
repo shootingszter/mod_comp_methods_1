@@ -30,3 +30,38 @@ Vector2<T> operator-( Vector2<T> const& a, Vector2<T> const& b)
 {
     return Vector2<T>{ a.x - b.x, a.y - b.y};
 }
+
+template<typename T>
+
+Vector2<T> operator*( Vector2<T> const& a, double const& b)
+{
+    return Vector2<T>{ b * a.x, b * a.y};
+}
+
+template<typename T>
+
+T dot( Vector2<T> const& a, Vector2<T> const& b)
+{
+    return a.x * b.x + a.y * b.y;
+}
+
+template<typename T>
+
+T length( Vector2<T> const& a)
+{
+    return sqrt(a.x * a.x + a.y * a.y);
+}
+
+template<typename T>
+
+T sqlength( Vector2<T> const& a)
+{
+    return a.x * a.x + a.y * a.y;
+}
+
+template<typename T>
+
+Vector2<T> normalize( Vector2<T> const& a)
+{
+    return Vector2<T>{a.x / length(a), a.y / length(a)};
+}
