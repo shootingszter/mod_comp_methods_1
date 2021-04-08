@@ -34,8 +34,14 @@ int main()
     Vector2<double> scalar1 = operator*(v1, scalar);
     Vector2<double> scalar2 = operator*(v2, scalar);
 
+    Vector2<double> scalar_left1 = left(v1, scalar);
+    Vector2<double> scalar_left2 = left(v2, scalar);
+
     std::cout << "scalar1 " << scalar1 << "\n";
     std::cout << "scalar2 " << scalar2 << "\n";
+
+    std::cout << "scalar_left1 " << scalar_left1 << "\n";
+    std::cout << "scalar_left2 " << scalar_left2 << "\n";
 
     std::cout << "--\n";
 

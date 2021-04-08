@@ -16,6 +16,22 @@ struct Vector2
         return *this;
     }
 
+    Vector2<T>& operator-=( Vector2<T> const& v)
+    {
+        x -= v.x; 
+        y -= v.y;
+
+        return *this;
+    }
+
+    Vector2<T>& operator*=( Vector2<T> const& v)
+    {
+        x *= v.x; 
+        y *= v.y;
+
+        return *this;
+    }
+
 };
 
 template<typename T>
@@ -82,4 +98,11 @@ template<typename T>
 Vector2<T> normalize( Vector2<T> const& a)
 {
     return Vector2<T>{a.x / length(a), a.y / length(a)};
+}
+
+template<typename T>
+
+Vector2<T> left( Vector2<T> const& a, double const& b)
+{
+    return Vector2<T>{ a.x * b, a.y * b};
 }
