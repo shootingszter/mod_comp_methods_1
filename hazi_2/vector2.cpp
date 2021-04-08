@@ -34,14 +34,14 @@ int main()
     Vector2<double> scalar1 = operator*(v1, scalar);
     Vector2<double> scalar2 = operator*(v2, scalar);
 
-    std::cout << "scalar1" << scalar1 << "\n";
-    std::cout << "scalar2" << scalar2 << "\n";
+    std::cout << "scalar1 " << scalar1 << "\n";
+    std::cout << "scalar2 " << scalar2 << "\n";
 
     std::cout << "--\n";
 
 
     double dot_prod = dot(v1, v2);
-    std::cout << "dot product" << dot_prod << "\n";
+    std::cout << "dot product " << dot_prod << "\n";
 
     std::cout << "--\n";
 
@@ -49,8 +49,8 @@ int main()
     double length1 = length(v1);
     double length2 = length(v2);
 
-    std::cout << "length 1" << length1 << "\n";
-    std::cout << "length 2" << length2 << "\n";
+    std::cout << "length 1 " << length1 << "\n";
+    std::cout << "length 2 " << length2 << "\n";
 
     std::cout << "--\n";
 
@@ -58,16 +58,16 @@ int main()
     double sq1 = sqlength(v1);
     double sq2 = sqlength(v2);
 
-    std::cout << "square length 1" << sq1 << "\n";
-    std::cout << "square length 2" << sq2 << "\n";
+    std::cout << "square length 1 " << sq1 << "\n";
+    std::cout << "square length 2 " << sq2 << "\n";
 
     std::cout << "--\n";
 
 
     Vector2<double> norm1 = normalize(v1);
     Vector2<double> norm2 = normalize(v2);
-    std::cout << "first vector normalization" << norm1 << "\n";
-    std::cout << "second vector normalization" << norm2 << "\n";
+    std::cout << "first vector normalization " << norm1 << "\n";
+    std::cout << "second vector normalization " << norm2 << "\n";
 
 
     return 0;
