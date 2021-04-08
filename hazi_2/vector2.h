@@ -74,7 +74,7 @@ Vector2<T> operator*(Vector2<T> const& a,T b)
 
 template<typename T>
 
-Vector2<T> operator*(T a, Vector2<T> b)
+Vector2<T> operator*(T a, Vector2<T> const& b)
 {
     return Vector2<T>{a * b.x, a * b.y};
 }
