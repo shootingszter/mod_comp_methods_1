@@ -11,6 +11,7 @@ int main()
 
     std::cout << "Enter vector 1:\n";
     std::cin >> v1;
+    
     std::cout << "Enter vector 2:\n";
     std::cin >> v2;
 
