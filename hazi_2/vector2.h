@@ -67,9 +67,16 @@ Vector2<T> operator-( Vector2<T> const& a, Vector2<T> const& b)
 
 template<typename T>
 
-Vector2<T> operator*( Vector2<T> const& a, double const& b)
+Vector2<T> operator*(Vector2<T> const& a,T b)
 {
-    return Vector2<T>{ b * a.x, b * a.y};
+    return Vector2<T>{b * a.x, b * a.y};
+}
+
+template<typename T>
+
+Vector2<T> operator*(T a, Vector2<T> b)
+{
+    return Vector2<T>{a * b.x, a * b.y};
 }
 
 template<typename T>
@@ -98,11 +105,4 @@ template<typename T>
 Vector2<T> normalize( Vector2<T> const& a)
 {
     return Vector2<T>{a.x / length(a), a.y / length(a)};
-}
-
-template<typename T>
-
-Vector2<T> left( Vector2<T> const& a, double const& b)
-{
-    return Vector2<T>{ a.x * b, a.y * b};
 }
