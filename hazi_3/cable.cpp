@@ -1,4 +1,4 @@
 #include <iostream>
 #include <ostream>
-#include <cmath>
-
+#include <math.h>
+#include "Richardson.h"
