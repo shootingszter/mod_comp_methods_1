@@ -7,22 +7,11 @@
 
 int main()
 {
-    /*
-    Richardson<double> 
-
-    std::cout << "Enter F:\n";
-    std::cin >> Richardson<double> F;
     
-    std::cout << "Enter q:\n";
-    std::cin >> Richardson<double> q;
-
-    std::cout << "Enter a:\n";
-    std::cin >> Richardson<double> a;
-    
-    std::cout << "Enter h:\n";
-    std::cin >> Richardson<double> h;
-    */
-    
+    double F = 900.0;
+    double q = 1.8;
+    double a = 200.0;
+    double h = 35.0;
 
     std::ofstream ofile;
 

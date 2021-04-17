@@ -2,11 +2,6 @@
 #include <ostream>
 #include <math.h>
 
- const F = 900.0;
- const q = 1.8;
- const a = 200.0;
- const h = 35.0;
-
 
 double shape(double x, double F, double q, double a, double h)
 {
