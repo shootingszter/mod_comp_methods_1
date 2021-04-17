@@ -2,6 +2,11 @@
 #include <ostream>
 #include <math.h>
 
+ const F = 900.0;
+ const q = 1.8;
+ const a = 200.0;
+ const h = 35.0;
+
 
 double shape(double x, double F, double q, double a, double h)
 {
@@ -39,7 +44,7 @@ T R_6(T x)
 
 template<typename T>
 
-T lenght(T x)
+T length(T x)
 {
     auto diff = R_6(1, x);
     
@@ -49,7 +54,7 @@ T lenght(T x)
 
 template<typename T>
 
-T midpoint(T x, double a, double b, int n)
+T midpoint(T (*f)(T x), double a, double b, int n)
 {
     T integral;
 
@@ -57,7 +62,7 @@ T midpoint(T x, double a, double b, int n)
 
     for (int i=0; i < n; i++)
     {
-        integral += a + (i + 0.5) * delta;
+        integral += f(a + (i + 0.5) * delta);
     }
 
     return delta * integral;
@@ -66,7 +71,7 @@ T midpoint(T x, double a, double b, int n)
 
 template<typename T>
 
-T trap(double a, double b, int n)
+T trap(T (*f)(T x), double a, double b, int n)
 {
     double delta = (b-a) / n;
 
@@ -74,7 +79,7 @@ T trap(double a, double b, int n)
 
     for (int i=0; i < n; i++)
     {
-        sum += a + i*delta;
+        sum += f(a + i*delta);
     }
     
     return  sum*delta;
@@ -83,7 +88,7 @@ T trap(double a, double b, int n)
 
 template<typename T>
 
-T Simpson(double a, double b, int n)
+T Simpson(T (*f)(T x), double a, double b, int n)
 {
     double delta = (b-a) / n;
     T sum_i = 0;
@@ -92,13 +97,13 @@ T Simpson(double a, double b, int n)
 
     for (int i=0; i < n; i++)
     {
-        sum_i += a + 2*i*delta;
+        sum_i += f(a + 2*i*delta);
     }
 
 
     for (int j=0; j < n; j++)
     {
-        sum_j += a + (2*j-1)*delta;
+        sum_j += f(a + (2*j-1)*delta);
     }
     
 
