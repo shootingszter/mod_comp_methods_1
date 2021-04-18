@@ -3,32 +3,28 @@
 #include <math.h>
 #include <fstream>
 #include "Richardson.h"
-
+// including the header 
 
 
 int main()
 {
+    // declaring necessary values
+    const double x = 2;
+    const int n = 1000;
 
+    // using the integration functions with parameteres
+    double mid = midpoint<double>(length, 0.0, 200.0, n);
+    double tra = trap<double>(length, 0.0, 200.0, n);
+    double simp = Simpson<double>(length, 0.0, 200.0, n);
     
-    const double x = 4;
-    const int n = 1000000;
-
-    //double len = length(shape<double>(4, F, q, a, h));
-    
-    double mpint = midpoint<double>(length, 0.0, 200.0, n);
-    
-    double tpint = trap<double>(length, 0.0, 200.0, n);
-    
-    double spint = Simpson<double>(length, 0.0, 200.0, n);
-    
-
+    // printing the outputs into a txt file
     std::ofstream ofile ("output.txt");
 
     if (ofile.is_open()) {
         
-        ofile << "Középpontos integrál: " << mpint << "\n ";
-        ofile << "Trapéz integrál: " << tpint << "\n ";
-        ofile << "Simpson 1/3 integrál: " << spint;
+        ofile << "Midpoint integral: " << mid << ",\n ";
+        ofile << "Trapezoid integral: " << tra << ",\n ";
+        ofile << "Simpson's 1/3 integral: " << simp;
             
         ofile.close();
     }

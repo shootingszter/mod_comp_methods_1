@@ -2,10 +2,15 @@
 #include <ostream>
 #include <math.h>
 
+
+//declaring the given parameters
 const double F = 900.0;
 const double q = 1.8;
 const double a = 200.0;
 const double h = 35.0;
+
+
+// function that describe the shape of the cable
 
 double shape(double x)
 {
@@ -13,17 +18,21 @@ double shape(double x)
 }
 
 
+// function to perform 2nd order Richardson
+
 template<typename T>
 
-T R_2(T x, double c) //h a képletben
+T R_2(T x, double c)
 {
     return (shape(x+c) - shape(x-c)) / (2*c);
 }
 
 
+// function to perform 4th order Richardson
+
 template<typename T>
 
-T R_4(T x, double c) //h a képletben
+T R_4(T x, double c)
 {
     return (4*R_2(x, c) - R_2(x, 2*c)) / 3;
 }
@@ -39,6 +48,8 @@ T R_6(T x, double c)
 }
 
 
+// function that returns the length of the cable
+
 template<typename T>
 
 T length(T x)
@@ -48,6 +59,8 @@ T length(T x)
     return sqrt(1 + (diff*diff));
 }
 
+
+// midpoint integration
 
 template<typename T>
 
@@ -66,6 +79,8 @@ T midpoint(T (*f)(T x), double a, double b, int n)
 }
 
 
+// Trapezoidal integration
+
 template<typename T>
 
 T trap(T (*f)(T x), double a, double b, int n)
@@ -82,6 +97,8 @@ T trap(T (*f)(T x), double a, double b, int n)
     return  sum*delta;
 }
 
+
+// 1/3 Simpson's rule
 
 template<typename T>
 
