@@ -2,8 +2,12 @@
 #include <ostream>
 #include <math.h>
 
+const double F = 900.0;
+const double q = 1.8;
+const double a = 200.0;
+const double h = 35.0;
 
-double shape(double x, double F, double q, double a, double h)
+double shape(double x)
 {
     return F/q * (cosh( (q/F)*x )) - cosh( ( (q*a)/(2*F) )+h);
 }
@@ -29,10 +33,8 @@ T R_4(T x, double c) //h a képletben
 
 template<typename T>
 
-T R_6(T x)
+T R_6(T x, double c)
 {
-    double c = 1;
-
     return (16*R_4(x, c) - R_4(x, 2*c)) / 15;
 }
 
@@ -41,7 +43,7 @@ template<typename T>
 
 T length(T x)
 {
-    auto diff = R_6(1, x);
+    auto diff = R_6(x, 1);
     
     return sqrt(1 + (diff*diff));
 }
@@ -51,7 +53,7 @@ template<typename T>
 
 T midpoint(T (*f)(T x), double a, double b, int n)
 {
-    T integral;
+    double integral = 0;
 
     double delta = (b-a) / n;
 
@@ -70,7 +72,7 @@ T trap(T (*f)(T x), double a, double b, int n)
 {
     double delta = (b-a) / n;
 
-    T sum = (a+b) / 2;
+    double sum = (a+b) / 2;
 
     for (int i=0; i < n; i++)
     {
@@ -86,8 +88,8 @@ template<typename T>
 T Simpson(T (*f)(T x), double a, double b, int n)
 {
     double delta = (b-a) / n;
-    T sum_i = 0;
-    T sum_j = 0;
+    double sum_i = 0;
+    double sum_j = 0;
 
 
     for (int i=0; i < n; i++)
@@ -102,7 +104,7 @@ T Simpson(T (*f)(T x), double a, double b, int n)
     }
     
 
-    T lol = (delta/3)*(a + 2*sum_i + 4*sum_j + b);
+    double lol = (delta/3)*(a + 2*sum_i + 4*sum_j + b);
 
     return lol;
 }

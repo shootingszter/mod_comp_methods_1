@@ -5,22 +5,33 @@
 #include "Richardson.h"
 
 
+
 int main()
 {
+
     
-    double F = 900.0;
-    double q = 1.8;
-    double a = 200.0;
-    double h = 35.0;
+    const double x = 4;
+    const int n = 1000000;
 
-    std::ofstream ofile;
+    //double len = length(shape<double>(4, F, q, a, h));
+    
+    double mpint = midpoint<double>(length, 0.0, 200.0, n);
+    
+    double tpint = trap<double>(length, 0.0, 200.0, n);
+    
+    double spint = Simpson<double>(length, 0.0, 200.0, n);
+    
 
-    ofile.open ("output.txt");
+    std::ofstream ofile ("output.txt");
 
-    ofile << "Midpoint integral: " << midpoint(length, 0.0, 200.0, 269) << ",\t";
-    ofile << "Trapezoidal integral: " << trap(length, 0.0, 200.0, 380) << ",\t";
-    ofile << "Simpson's 1/3 rule: " << Simpson(length, 0.0, 200.0, 4);
+    if (ofile.is_open()) {
+        
+        ofile << "Középpontos integrál: " << mpint << "\n ";
+        ofile << "Trapéz integrál: " << tpint << "\n ";
+        ofile << "Simpson 1/3 integrál: " << spint;
+            
+        ofile.close();
+    }
 
-    ofile.close();
     return 0;
 }
