@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <fstream>
 
-double d_fun(double y)
+double d_fun(double y, double t)
 {
     return 1 + y*y;
 }
@@ -38,7 +38,7 @@ auto solve_rk4(State y0, T t0, T t1, T h, RHS f) //, Callback cb)
         {
             h = t1 - t;
         }
-        
+
         State k1 = f(t, y);
         State k2 = f(t + h * (T)0.5, y + (h * (T)0.5) * k1);
         State k3 = f(t + h * (T)0.5, y + (h * (T)0.5) * k2);
