@@ -67,7 +67,7 @@ int main()
         
         ofile << "Analitic solution: " << analitic << ",\n";
         ofile << "Solution with Newton's method: " << oldton << ",\n";
-        ofile << "Solution with 4th order Runge Kutta: " << RK4;
+        ofile << "Solution with 4th order Runge Kutta: " << RK4 << "\n";
         ofile << "Have a beautiful day! :)";
             
         ofile.close();
