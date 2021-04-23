@@ -65,8 +65,8 @@ int main()
 
     if (ofile.is_open()) {
         
-        ofile << "Analitic solution: " << analitic << ",\n ";
-        ofile << "Solution with Newton's method: " << oldton << ",\n ";
+        ofile << "Analitic solution: " << analitic << ",\n";
+        ofile << "Solution with Newton's method: " << oldton << ",\n";
         ofile << "Solution with 4th order Runge Kutta: " << RK4;
             
         ofile.close();
