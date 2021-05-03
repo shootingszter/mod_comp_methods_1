@@ -34,8 +34,10 @@ int findMandelbrot(double cr, double ci, int max_iterations)
     while (i < max_iterations && zr * zr + zi * zi < 4.0)
     {
         double temp = zr * zr - zi * zi + cr;
+
         zi = 2.0 * zr * zi + ci;
         zr = temp;
+
         i++;
     }
 
@@ -48,8 +50,10 @@ int main()
     //get the required input values from file
 
     std::ifstream fin("input.txt");
+
     int imageWidth, imageHeight, maxN;
     double minR, maxR, minI, maxI;
+    
     if (!fin)
     {
         std::cout << "Could not open file!" << std::endl;
@@ -60,11 +64,14 @@ int main()
     fin >> imageWidth >> imageHeight >> maxN;
     fin >> minR >> maxR >> minI >> maxI;
     fin.close();
+
     //open the output file, write the header
     std::ofstream fout("output.ppm");
+
     fout << "P3" << std::endl;
     fout << imageWidth << " " << imageHeight << std::endl;
     fout << "256" << std::endl;
+    
     // for every pixel...
     for (int y = 0; y < imageHeight; y++) //rows
     {
