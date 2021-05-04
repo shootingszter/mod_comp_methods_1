@@ -70,7 +70,7 @@ int main()
     fin.close();
 
     //open the output file, write the header
-    std::ofstream fout("mandelplot.ppm");
+    std::ofstream fout("Mandelplot.ppm");
 
     fout << "P3" << std::endl;
     fout << imageWidth << " " << imageHeight << std::endl;
