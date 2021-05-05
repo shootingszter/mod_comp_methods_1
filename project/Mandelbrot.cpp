@@ -9,23 +9,6 @@
 
 int main()
 {
-    //get the required input values from file
-
-    /* std::ifstream fin("input.txt");
-
-    int imageWidth, imageHeight, maxN;
-    double minR, maxR, minI, maxI;
-    
-    if (!fin)
-    {
-        std::cout << "Could not open file!" << std::endl;
-        std::cin.ignore();
-        return 0;
-    }
-
-    fin >> imageWidth >> imageHeight >> maxN;
-    fin >> minR >> maxR >> minI >> maxI;
-    fin.close(); */
 
     int imageWidth = 1000;
     int imageHeight = 1000;
@@ -64,7 +47,7 @@ int main()
             //...find the number of iterations in the mandekbrot formula using that c
             int n = findMandelbrot<int>(cr, ci, maxN);
             //...map the resulting number to an rgb value
-            int r = (n * n % 256); // change for more interesting colors
+            int r = (n * n % 256); 
             int g = (n * n % 100);
             int b = (n % 119);
 

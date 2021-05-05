@@ -3,14 +3,6 @@
 #include <fstream>
 #include <math.h>
 
-/*
-while (x*x + y*y < 2*2 AND iteration < max_iteration)
-{
-    xtemp = x*x - y*y +x0
-        y = 2 * x*y + y0
-        x = xtemp
-        iteration = iteration + 1
-}*/
 
 template <typename I, typename D>
 
