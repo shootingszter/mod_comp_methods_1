@@ -5,55 +5,13 @@
 
 #include "Mandelheader.h"
 
-/*
-while (x*x + y*y < 2*2 AND iteration < max_iteration)
-{
-    xtemp = x*x - y*y +x0
-        y = 2 * x*y + y0
-        x = xtemp
-        iteration = iteration + 1
-}*/
 
-/*
-double mapToReal(int x, int imageWidth, double minR, double maxR)
-{
-    double range = maxR - minR;
 
-    return x*(range/imageWidth) + minR;
-
-}
-
-double mapToImaginary(int y, int imageHeight, double minI, double maxI)
-{
-    double range = maxI - minI;
-
-    return y*(range/imageHeight) + minI;
-}
-
-int findMandelbrot(double cr, double ci, int max_iterations)
-{
-    int i = 0;
-    double zr = 0.0, zi = 0.0;
-
-    while (i < max_iterations && zr * zr + zi * zi < 4.0)
-    {
-        double temp = zr * zr - zi * zi + cr;
-
-        zi = 2.0 * zr * zi + ci;
-        zr = temp;
-
-        i++;
-    }
-
-    return i;
-
-}
-*/
 int main()
 {
     //get the required input values from file
 
-    std::ifstream fin("input.txt");
+    /* std::ifstream fin("input.txt");
 
     int imageWidth, imageHeight, maxN;
     double minR, maxR, minI, maxI;
@@ -67,7 +25,25 @@ int main()
 
     fin >> imageWidth >> imageHeight >> maxN;
     fin >> minR >> maxR >> minI >> maxI;
-    fin.close();
+    fin.close(); */
+
+    int imageWidth = 1000;
+    int imageHeight = 1000;
+    int maxN = 1000;
+
+    double minR, maxR, minI, maxI;
+
+    std::cout << "Enter minReal:\n";
+    std::cin >> minR;
+    
+    std::cout << "Enter maxReal:\n";
+    std::cin >> maxR;
+
+    std::cout << "Enter minImaginary:\n";
+    std::cin >> minI;
+    
+    std::cout << "Enter maxImaginary:\n";
+    std::cin >> maxI;
 
     //open the output file, write the header
     std::ofstream fout("Mandelplot.ppm");
